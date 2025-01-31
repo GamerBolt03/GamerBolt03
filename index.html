@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>GamerBolt03 - GitHub Profile</title>
     <style>
         body {
@@ -56,53 +52,55 @@
 
         .section-title {
             font-size: 2.5em;
-            margin-bottom: 30px;
-            color: #E1E1E6;
+            margin: 80px 0 30px;
             font-weight: 500;
             background: linear-gradient(to right, #007AFF, #9B59B6);
             -webkit-background-clip: text;
             color: transparent;
         }
 
-        .section-content {
-            margin-bottom: 50px;
-        }
-
         .profile-info {
             display: flex;
             justify-content: center;
-            align-items: flex-start;
+            align-items: center;
             flex-wrap: wrap;
             background-color: #1F1F1F;
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             gap: 40px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .profile-info:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
         }
 
         .profile-info div {
-            width: 48%;
-            margin-bottom: 20px;
+            width: 45%;
         }
 
         .projects-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(2, minmax(300px, 1fr));
             gap: 20px;
-            justify-content: center;
         }
 
         .project-card {
             background-color: #1F1F1F;
             padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             text-align: center;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
         }
 
         .project-card h3 {
             font-size: 1.8em;
-            color: #E1E1E6;
             font-weight: 600;
             background: linear-gradient(to right, #007AFF, #9B59B6);
             -webkit-background-clip: text;
@@ -114,82 +112,89 @@
             margin: 10px 0;
         }
 
-        .project-card a {
-            text-decoration: none;
-            color: #007AFF;
-            font-weight: 500;
-        }
-
-        .project-card a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            background-color: #1D1D1F;
-            color: #B4B4B4;
-            text-align: center;
-            padding: 30px 0;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        .contact-info a {
-            color: #007AFF;
-            font-weight: 500;
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
         .button {
             display: inline-block;
             background: linear-gradient(to right, #007AFF, #9B59B6);
             color: black;
             padding: 12px 30px;
-            text-align: center;
             font-size: 1.2em;
             border-radius: 10px;
             text-decoration: none;
-            transition: background-color 0.3s ease;
-            margin-top: 20px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
 
         .button:hover {
-            background: linear-gradient(to right, #005bb5, #8e44ad);
+            transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
         }
 
-        .contact-spacing {
-            margin-top: 50px;
+        .contact-info {
+            margin-top: 20px;
         }
 
-        .projects-spacing {
-            margin-top: 50px;
+        /* Project Showcase Styles */
+        .project-showcase {
+            display: flex;
+            justify-content: space-between;
+            background-color: #1F1F1F;
+            padding: 30px;
+            margin: 20px;
+            border-radius: 12px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         }
 
-        .profile-info div {
-            width: 45%;
+        .project-showcase img {
+            width: 40%;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
+        }
+
+        .project-showcase:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
+        }
+
+        .project-details {
+            width: 55%;
+            text-align: left;
+        }
+
+        .project-details h2 {
+            font-size: 2.5em;
+            background: linear-gradient(to right, #007AFF, #9B59B6);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .project-details ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .project-details ul li {
+            font-size: 1.1em;
+            color: #B4B4B4;
+            margin: 10px 0;
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Welcome to GamerBolt03's website</h1>
+        <h1>Welcome to GamerBolt03's Website</h1>
     </header>
 
     <nav>
         <a href="#about">About</a>
         <a href="#projects">Projects</a>
+        <a href="#project-one">Project 1</a>
+        <a href="#project-two">Project 2</a>
         <a href="#contact">Contact</a>
     </nav>
 
     <div class="container">
         <section id="about">
-            <div class="section-title">About GamerBolt03 (Arhaan Rai)</div>
+            <div class="section-title">About Me</div>
             <div class="profile-info">
                 <div>
                     <h2>Profile</h2>
@@ -199,54 +204,79 @@
                     <h2>Skills</h2>
                     <ul>
                         <li>Game Development</li>
-                        <li>JavaScript, C++, Python</li>
-                        <li>Open-Source Contributions</li>
-                        <li>Software Engineering</li>
-                        <li>Collaboration & Teamwork</li>
+                        <li>C, C++, Python</li>
+                        <li>AI &amp; Robotics</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="projects-spacing">
+        <section id="projects">
             <div class="section-title">Projects</div>
             <div class="projects-list">
                 <div class="project-card">
                     <h3>Project One</h3>
-                    <p>This project is an example of a game development project, exploring immersive mechanics and creative AI implementations.</p>
-                    <a href="https://github.com/GamerBolt03/project-one" target="_blank">View on GitHub</a>
+                    <p>AI assistant, Nova-Core</p>
+                    <a href="#project-one" class="button">View Details</a>
                 </div>
                 <div class="project-card">
                     <h3>Project Two</h3>
-                    <p>This project focuses on open-source collaboration, building a robust framework for future game developers.</p>
-                    <a href="https://github.com/GamerBolt03/project-two" target="_blank">View on GitHub</a>
+                    <p>Open-source game frameworks.</p>
+                    <a href="#project-two" class="button">View Details</a>
                 </div>
                 <div class="project-card">
                     <h3>Project Three</h3>
-                    <p>This project explores AI-powered game mechanics, enhancing the gaming experience with intelligent non-playable characters (NPCs).</p>
-                    <a href="https://github.com/GamerBolt03/project-three" target="_blank">View on GitHub</a>
+                    <p>Real-time multiplayer system.</p>
+                    <a href="#project-three" class="button">View Details</a>
                 </div>
                 <div class="project-card">
                     <h3>Project Four</h3>
-                    <p>This project dives into game-level design, focusing on creating engaging environments and interactive worlds for players.</p>
-                    <a href="https://github.com/GamerBolt03/project-four" target="_blank">View on GitHub</a>
+                    <p>AI-powered chatbots.</p>
+                    <a href="#project-four" class="button">View Details</a>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="contact-spacing">
-            <div class="section-title">Contact</div>
-            <div class="contact-info">
-                <p>If you would like to collaborate or ask questions, feel free to reach out!</p>
-                <p>Email: <a href="mailto:gamerbolt03@example.com">gamerbolt03@example.com</a></p>
-                <a href="mailto:gamerbolt03@example.com" class="button">Contact Me</a>
+        <!-- Project 1 Showcase -->
+        <section id="project-one">
+            <div class="section-title">Project 1 Showcase</div>
+            <div class="project-showcase">
+                <img alt="Project 1 Image" src="https://github.com/RobotInventors/Robot-Inventors-Legacy/blob/main/Logo.png">
+                <div class="project-details">
+                    <h2>AI-Driven Game Mechanics</h2>
+                    <ul>
+                        <li>Game AI using reinforcement learning</li>
+                        <li>Dynamic difficulty adjustment</li>
+                        <li>Integration with Unity engine</li>
+                    </ul>
+                    <p>Project 1 is a game mechanic system utilizing AI to create a responsive and dynamic gaming experience.</p>
+                </div>
             </div>
+        </section>
+
+        <!-- Project 2 Showcase -->
+        <section id="project-two">
+            <div class="section-title">Project 2 Showcase</div>
+            <div class="project-showcase">
+                <img src="https://via.placeholder.com/400x300" alt="Project 2 Image">
+                <div class="project-details">
+                    <h2>Open-Source Game Frameworks</h2>
+                    <ul>
+                        <li>Modular and customizable</li>
+                        <li>Multi-platform support</li>
+                        <li>Efficient game logic and rendering</li>
+                    </ul>
+                    <p>Project 2 is an open-source framework that allows developers to create their own game engines with minimal effort.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="section-title">Contact</div>
+            <a href="mailto:gamerbolt03@example.com" class="button">Contact Me</a>
         </section>
     </div>
 
-    <footer>
-        <p>&copy; 2025 GamerBolt03 | All Rights Reserved</p>
-    </footer>
-</body>
 
-</html>
+
+</body></html>
