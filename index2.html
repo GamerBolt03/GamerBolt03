@@ -1,282 +1,495 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GamerBolt03 - GitHub Profile</title>
+    <title>adidas NeuroSLAM Collection Showcase</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-            background-color: #121212;
-            color: #E1E1E6;
-            margin: 0;
-            padding: 0;
-            text-align: center;
+        * {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        header {
-            background-color: #1D1D1F;
-            color: white;
-            padding: 50px 0;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        
+        .animate-fade-in {
+            animation: fadeIn 0.5s ease-out;
         }
-
-        header h1 {
-            margin: 0;
-            font-size: 2.8em;
-            font-weight: 600;
-            background: linear-gradient(to right, #007AFF, #9B59B6);
-            -webkit-background-clip: text;
-            color: transparent;
+        
+        .animate-slide-up {
+            animation: slideUp 0.6s ease-out;
         }
-
-        nav {
-            text-align: center;
-            background-color: #1D1D1F;
-            padding: 15px 0;
-            border-top: 1px solid #333;
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-
-        nav a {
-            color: #007AFF;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 1.1em;
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0; 
+                transform: translateY(30px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
         }
-
-        nav a:hover {
-            text-decoration: underline;
+        
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
         }
-
-        .container {
-            padding: 30px;
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            margin: 80px 0 30px;
-            font-weight: 500;
-            background: linear-gradient(to right, #007AFF, #9B59B6);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .profile-info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            background-color: #1F1F1F;
-            padding: 30px;
-            border-radius: 12px;
-            gap: 40px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .profile-info:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(0, 122, 255, 0.3);
-        }
-
-        .profile-info div {
-            width: 45%;
-        }
-
-        .projects-list {
-            display: grid;
-            grid-template-columns: repeat(2, minmax(300px, 1fr));
-            gap: 20px;
-        }
-
-        .project-card {
-            background-color: #1F1F1F;
-            padding: 25px;
-            border-radius: 12px;
-            text-align: center;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .project-card:hover {
-            transform: scale(1.04);
-            box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
-        }
-
-        .project-card h3 {
-            font-size: 1.8em;
-            font-weight: 600;
-            background: linear-gradient(to right, #007AFF, #9B59B6);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .project-card p {
-            color: #B4B4B4;
-            margin: 10px 0;
-        }
-
-        .button {
-            display: inline-block;
-            background: linear-gradient(to right, #007AFF, #9B59B6);
-            color: black;
-            padding: 12px 30px;
-            font-size: 1.2em;
-            border-radius: 10px;
-            text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-        }
-
-        .button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(155, 89, 182, 0.4);
-        }
-
-        .contact-info {
-            margin-top: 20px;
-        }
-
-        /* Project Showcase Styles */
-        .project-showcase {
-            display: flex;
-            justify-content: space-between;
-            background-color: #1F1F1F;
-            padding: 30px;
-            margin: 20px;
-            border-radius: 12px;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-        }
-
-        .project-showcase img {
-            width: 40%;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 122, 255, 0.3);
-        }
-
-        .project-showcase:hover {
-            transform: scale(1.02);
-            box-shadow: 0 0 20px rgba(155, 89, 182, 0.3);
-        }
-
-        .project-details {
-            width: 55%;
-            text-align: left;
-        }
-
-        .project-details h2 {
-            font-size: 2.5em;
-            background: linear-gradient(to right, #007AFF, #9B59B6);
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-
-        .project-details ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .project-details ul li {
-            font-size: 1.1em;
-            color: #B4B4B4;
-            margin: 10px 0;
+        
+        .modal-backdrop {
+            backdrop-filter: blur(10px);
+            background: rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
-
-<body>
-    <header>
-        <h1>Welcome to GamerBolt03's Website</h1>
+<body class="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 backdrop-blur-md bg-black/80 border-b border-gray-700">
+        <div class="max-w-7xl mx-auto px-6 py-4">
+            <div class="text-center">
+                <span class="text-2xl font-bold tracking-tight">adidas</span>
+                <div class="text-sm text-gray-400">Varsity Vibes Collection</div>
+            </div>
+        </div>
     </header>
 
-    <nav>
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#project-one">Project 1</a>
-        <a href="#project-two">Project 2</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <div class="container">
-        <section id="about">
-            <div class="section-title">About Me</div>
-            <div class="profile-info">
-                <div>
-                    <h2>Profile</h2>
-                    <p>I am a passionate developer who loves building gaming-related projects, contributing to open-source software, and continuously exploring new technologies. With a keen interest in coding and creative problem-solving, I strive to innovate and push the limits of gaming and development.</p>
-                </div>
-                <div>
-                    <h2>Skills</h2>
-                    <ul>
-                        <li>Game Development</li>
-                        <li>C, C++, Python</li>
-                        <li>AI &amp; Robotics</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="projects">
-            <div class="section-title">Projects</div>
-            <div class="projects-list">
-                <div class="project-card">
-                    <h3>Project One</h3>
-                    <p>AI assistant, Nova-Core</p>
-                    <a href="#project-one" class="button">View Details</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Two</h3>
-                    <p>Open-source game frameworks.</p>
-                    <a href="#project-two" class="button">View Details</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Three</h3>
-                    <p>Real-time multiplayer system.</p>
-                    <a href="#project-three" class="button">View Details</a>
-                </div>
-                <div class="project-card">
-                    <h3>Project Four</h3>
-                    <p>AI-powered chatbots.</p>
-                    <a href="#project-four" class="button">View Details</a>
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-600 via-purple-600 to-teal-600 py-20 px-6 text-center">
+            <div class="max-w-4xl mx-auto">
+                <h1 class="text-6xl md:text-7xl font-black mb-6 text-white leading-tight">
+                    VARSITY
+                    <span class="block bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                        VIBES
+                    </span>
+                </h1>
+                <p class="text-xl md:text-2xl text-white/90 mb-8 leading-relaxed">
+                    Revolutionary color-changing technology meets classic design.
+                    <br class="hidden md:block" />
+                    Compliant by day, expressive by choice.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-8 text-white/80">
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span>Electrochromic Tech</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                        <span>School Approved</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+                        </svg>
+                        <span>Limited Edition</span>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Project 1 Showcase -->
-        <section id="project-one">
-            <div class="section-title">Project 1 Showcase</div>
-            <div class="project-showcase">
-                <img alt="Project 1 Image" src="https://github.com/RobotInventors/Robot-Inventors-Legacy/blob/main/Logo.png">
-                <div class="project-details">
-                    <h2>AI-Driven Game Mechanics</h2>
-                    <ul>
-                        <li>Game AI using reinforcement learning</li>
-                        <li>Dynamic difficulty adjustment</li>
-                        <li>Integration with Unity engine</li>
-                    </ul>
-                    <p>Project 1 is a game mechanic system utilizing AI to create a responsive and dynamic gaming experience.</p>
+    <!-- Main Product Display -->
+    <section class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl md:text-5xl font-black text-center mb-16">
+                Varsity Vibes Collection
+            </h2>
+            
+            <div class="grid md:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Black Variant -->
+                <div class="group cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 rounded-3xl p-8 transition-all duration-500 shadow-xl hover:shadow-2xl card-hover" 
+                     onclick="openShoeDetail(0)">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <img id="blackShoeImg" 
+                             src="https://github.com/GamerBolt03/GamerBolt03/blob/main/Colored%20Shoe%20Black.jpg?raw=true"
+                             alt="adidas Varsity Vibes: Black"
+                             class="w-full h-64 object-cover transition-all duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        <button onclick="event.stopPropagation(); toggleColorDemo('black')"
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full text-sm font-medium text-black hover:bg-white transition-all duration-300 flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <span id="blackDemoText">Color Change</span>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold">adidas Varsity Vibes: Black</h3>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-full border-2 border-gray-300 shadow-md bg-gray-800" title="Black"></div>
+                                <span class="text-sm text-gray-400">Black</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-300 leading-relaxed">
+                            The perfect blend of compliance and creativity. Transform from classic black to vibrant colors with the press of a button, while maintaining school dress code standards.
+                        </p>
+                        
+                        <div class="flex items-center justify-between pt-4">
+                            <span class="text-2xl font-bold text-green-600">₹7,999</span>
+                            <button onclick="event.stopPropagation(); openShoeDetail(0)"
+                                    class="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105">
+                                <span>Learn More</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- White Variant -->
+                <div class="group cursor-pointer bg-gradient-to-br from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 rounded-3xl p-8 transition-all duration-500 shadow-xl hover:shadow-2xl card-hover" 
+                     onclick="openShoeDetail(1)">
+                    <div class="relative overflow-hidden rounded-2xl mb-6">
+                        <img id="whiteShoeImg" 
+                             src="https://github.com/GamerBolt03/GamerBolt03/blob/main/Colored%20Shoes%20White.jpg?raw=true"
+                             alt="adidas Varsity Vibes: White"
+                             class="w-full h-64 object-cover transition-all duration-700 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        
+                        <!-- Color Change Demo Button -->
+                        <button onclick="event.stopPropagation(); toggleColorDemo('white')"
+                                class="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-2 rounded-full text-sm font-medium text-black hover:bg-white transition-all duration-300 flex items-center space-x-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <span id="whiteDemoText">Color Change</span>
+                        </button>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold">adidas Varsity Vibes: White</h3>
+                        
+                        <div class="flex items-center space-x-4">
+                            <div class="flex items-center space-x-2">
+                                <div class="w-6 h-6 rounded-full border-2 border-gray-300 shadow-md bg-white" title="White"></div>
+                                <span class="text-sm text-gray-400">White</span>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-300 leading-relaxed">
+                            Clean, classic, and revolutionary. Start with pristine white and instantly switch to bold expressions of your personality, all while staying within school guidelines.
+                        </p>
+                        
+                        <div class="flex items-center justify-between pt-4">
+                            <span class="text-2xl font-bold text-green-600">₹7,999</span>
+                            <button onclick="event.stopPropagation(); openShoeDetail(1)"
+                                    class="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-full font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105">
+                                <span>Learn More</span>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Project 2 Showcase -->
-        <section id="project-two">
-            <div class="section-title">Project 2 Showcase</div>
-            <div class="project-showcase">
-                <img src="https://via.placeholder.com/400x300" alt="Project 2 Image">
-                <div class="project-details">
-                    <h2>Open-Source Game Frameworks</h2>
-                    <ul>
-                        <li>Modular and customizable</li>
-                        <li>Multi-platform support</li>
-                        <li>Efficient game logic and rendering</li>
-                    </ul>
-                    <p>Project 2 is an open-source framework that allows developers to create their own game engines with minimal effort.</p>
+    <!-- Our Story Section -->
+    <section class="py-20 px-6 bg-gradient-to-r from-gray-800 to-gray-900">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-black mb-8">Our Story</h2>
+            <div class="prose prose-lg max-w-none">
+                <p class="text-lg leading-relaxed text-gray-300">
+                    We wanted to make a new innovative shoe and were thinking how we can make school shoes less boring. 
+                    The answer we came to was to make the shoe colorful, but most schools don't allow colored shoes. 
+                    So we thought: what if it could switch between colors from basic black or white to colored? 
+                    Then we had to think of a way to actually change the color of the shoe, so we did some research 
+                    and found electrochromic fabrics that change color using electricity.
+                </p>
+            </div>
+            <div class="mt-12 grid md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Innovation</h3>
+                    <p class="text-gray-400">Cutting-edge electrochromic technology</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-teal-600 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Compliance</h3>
+                    <p class="text-gray-400">School dress code approved</p>
+                </div>
+                <div class="text-center p-6">
+                    <div class="w-16 h-16 bg-gradient-to-r from-orange-600 to-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Expression</h3>
+                    <p class="text-gray-400">Your personality, your choice</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact">
-            <div class="section-title">Contact</div>
-            <a href="mailto:gamerbolt03@example.com" class="button">Contact Me</a>
-        </section>
+    <!-- Product Detail Modal -->
+    <div id="shoeModal" class="fixed inset-0 z-[100] modal-backdrop hidden items-center justify-center p-4 animate-fade-in">
+        <div class="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-gray-900 rounded-3xl shadow-2xl animate-slide-up">
+            <!-- Breadcrumb -->
+            <div class="px-8 pt-6 pb-2 border-b border-gray-700">
+                <div class="flex items-center space-x-2 text-sm text-gray-400">
+                    <span>Varsity Vibes</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                    <span id="modalBreadcrumb"></span>
+                </div>
+            </div>
+
+            <button onclick="closeShoeDetail()"
+                    class="absolute top-6 right-6 w-10 h-10 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors duration-300 z-10">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+            
+            <div class="p-8">
+                <!-- Image Gallery -->
+                <div class="relative overflow-hidden rounded-2xl mb-8">
+                    <img id="modalImage" src="" alt="" class="w-full h-80 object-cover transition-all duration-500">
+                    
+                    <!-- Image Toggle Controls -->
+                    <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/90 backdrop-blur-sm rounded-full p-2 flex items-center space-x-2">
+                        <button id="standardBtn" onclick="toggleModalImage('standard')"
+                                class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 bg-white text-black">
+                            <span>Standard</span>
+                        </button>
+                        <button id="colorChangedBtn" onclick="toggleModalImage('colorChanged')"
+                                class="px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 hover:bg-gray-800">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                            </svg>
+                            <span>Color Changed</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="space-y-6">
+                    <div>
+                        <h2 id="modalTitle" class="text-3xl font-bold mb-3"></h2>
+                        <div class="flex items-center space-x-4 mb-4">
+                            <div class="flex items-center space-x-2">
+                                <div id="modalColorCircle" class="w-6 h-6 rounded-full border-2 border-gray-300 shadow-md"></div>
+                                <span id="modalColorName" class="text-gray-400"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <p id="modalDescription" class="text-lg leading-relaxed text-gray-300"></p>
+                    
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">Key Features</h3>
+                        <div id="modalFeatures" class="grid md:grid-cols-2 gap-3"></div>
+                    </div>
+                    
+                    <div class="flex items-center justify-between pt-6 border-t border-gray-700">
+                        <span id="modalPrice" class="text-3xl font-bold text-green-600"></span>
+                        <div class="flex items-center space-x-4">
+                            <button onclick="closeShoeDetail()"
+                                    class="flex items-center space-x-2 px-6 py-3 border border-gray-600 rounded-full font-medium hover:bg-gray-800 transition-all duration-300">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+                                </svg>
+                                <span>Back</span>
+                            </button>
+                            <button onclick="window.open('https://www.adidas.com/', '_blank')"
+                                    class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3 rounded-full font-bold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 hover:scale-105 flex items-center space-x-2">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+                                </svg>
+                                <span>Buy Now</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <script>
+        // Shoe data with local image paths
+        const shoeVariants = [
+            {
+                id: 'black',
+                name: 'adidas Varsity Vibes: Black',
+                baseColor: 'Black',
+                images: {
+                    standard: 'https://github.com/GamerBolt03/GamerBolt03/blob/main/Colored%20Shoe%20Black.jpg?raw=true',
+                    colorChanged: 'https://github.com/GamerBolt03/GamerBolt03/blob/main/Shoe%20Black.jpg?raw=true'
+                },
+                features: [
+                    'Electrochromic material technology',
+                    'One-button color change functionality',
+                    'School dress code compliance',
+                    'All-day comfort with CloudFoam+ cushioning',
+                    'adidas Originals heritage design',
+                    'Durable construction for daily wear'
+                ],
+                price: '₹7,999',
+                description: 'The perfect blend of compliance and creativity. Transform from classic black to vibrant colors with the press of a button, while maintaining school dress code standards.'
+            },
+            {
+                id: 'white',
+                name: 'adidas Varsity Vibes: White',
+                baseColor: 'White',
+                images: {
+                    standard: 'https://github.com/GamerBolt03/GamerBolt03/blob/main/Shoe%20White.jpg?raw=true',
+                    colorChanged: 'https://github.com/GamerBolt03/GamerBolt03/blob/main/Colored%20Shoes%20White.jpg?raw=true'
+                },
+                features: [
+                    'Electrochromic material technology',
+                    'One-button color change functionality',
+                    'School dress code compliance',
+                    'Premium white leather construction',
+                    'adidas Originals heritage design',
+                    'Easy-clean surface for maintenance'
+                ],
+                price: '₹7,999',
+                description: 'Clean, classic, and revolutionary. Start with pristine white and instantly switch to bold expressions of your personality, all while staying within school guidelines.'
+            }
+        ];
 
+        let showColorDemo = { black: false, white: false };
+        let currentImageState = 'standard';
+        let selectedShoe = null;
 
-</body></html>
+        // Color demo toggle functionality
+        function toggleColorDemo(shoeId) {
+            showColorDemo[shoeId] = !showColorDemo[shoeId];
+            const img = document.getElementById(shoeId + 'ShoeImg');
+            const text = document.getElementById(shoeId + 'DemoText');
+            const shoe = shoeVariants.find(s => s.id === shoeId);
+            
+            if (showColorDemo[shoeId]) {
+                img.src = shoe.images.colorChanged;
+                text.textContent = 'Standard';
+            } else {
+                img.src = shoe.images.standard;
+                text.textContent = 'Color Change';
+            }
+        }
+
+        // Modal functionality
+        function openShoeDetail(index) {
+            selectedShoe = shoeVariants[index];
+            currentImageState = 'standard';
+            
+            const modal = document.getElementById('shoeModal');
+            
+            // Update modal content
+            document.getElementById('modalBreadcrumb').textContent = selectedShoe.baseColor;
+            document.getElementById('modalImage').src = selectedShoe.images.standard;
+            document.getElementById('modalTitle').textContent = selectedShoe.name;
+            document.getElementById('modalDescription').textContent = selectedShoe.description;
+            document.getElementById('modalPrice').textContent = selectedShoe.price;
+            document.getElementById('modalColorName').textContent = selectedShoe.baseColor;
+            
+            // Update color circle
+            const colorCircle = document.getElementById('modalColorCircle');
+            if (selectedShoe.baseColor === 'Black') {
+                colorCircle.className = 'w-6 h-6 rounded-full border-2 border-gray-300 shadow-md bg-gray-800';
+            } else {
+                colorCircle.className = 'w-6 h-6 rounded-full border-2 border-gray-300 shadow-md bg-white';
+            }
+            
+            // Update features
+            const featuresContainer = document.getElementById('modalFeatures');
+            featuresContainer.innerHTML = '';
+            selectedShoe.features.forEach(feature => {
+                const div = document.createElement('div');
+                div.className = 'flex items-center space-x-3 p-3 bg-gray-800 rounded-lg';
+                div.innerHTML = `
+                    <div class="w-2 h-2 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex-shrink-0"></div>
+                    <span class="text-gray-300">${feature}</span>
+                `;
+                featuresContainer.appendChild(div);
+            });
+            
+            // Reset button states
+            updateModalButtons();
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeShoeDetail() {
+            const modal = document.getElementById('shoeModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            selectedShoe = null;
+        }
+
+        function toggleModalImage(state) {
+            if (!selectedShoe) return;
+            
+            currentImageState = state;
+            const modalImage = document.getElementById('modalImage');
+            
+            if (state === 'standard') {
+                modalImage.src = selectedShoe.images.standard;
+            } else {
+                modalImage.src = selectedShoe.images.colorChanged;
+            }
+            
+            updateModalButtons();
+        }
+
+        function updateModalButtons() {
+            const standardBtn = document.getElementById('standardBtn');
+            const colorChangedBtn = document.getElementById('colorChangedBtn');
+            
+            if (currentImageState === 'standard') {
+                standardBtn.className = 'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 bg-white text-black';
+                colorChangedBtn.className = 'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 hover:bg-gray-800';
+            } else {
+                standardBtn.className = 'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 hover:bg-gray-800';
+                colorChangedBtn.className = 'px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white';
+            }
+        }
+
+        // Close modal on backdrop click
+        document.getElementById('shoeModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeShoeDetail();
+            }
+        });
+
+        // Close modal on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeShoeDetail();
+            }
+        });
+    </script>
+</body>
+</html>
